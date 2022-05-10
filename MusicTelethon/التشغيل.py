@@ -67,7 +67,7 @@ async def ytdl(link):
     else:
         return 0, stderr.decode()
 
-@Client.on_message(filters.command(["تشغيل"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["شغل"], prefixes=f"{HNDLR}"))
 async def play(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -164,7 +164,7 @@ async def play(client, m: Message):
                             await huehue.edit(f"`{ep}`")
 
 
-@Client.on_message(filters.command(["تشغيل_فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["شغل_فيديو"], prefixes=f"{HNDLR}"))
 async def vplay(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -317,7 +317,7 @@ async def playfrom(client, m: Message):
             await hmm.edit(f"**هناك خطا ** \n`{e}`")
 
 
-@Client.on_message(filters.command(["التشغيل التلقائي", "queue"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["تشغيل التلقائي", "queue"], prefixes=f"{HNDLR}"))
 async def playlist(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -367,7 +367,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(filters.command(["انهاء", "ايقاف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["وكف", "ايقاف"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
@@ -381,7 +381,8 @@ async def stop(client, m: Message):
             await m.reply(f"**هناك خطأ ** \n`{e}`")
     else:
         await m.reply("**❌ لايوجد هناك اغنيه شغاله !**")
-@Client.on_message(filters.command(["استئناف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["اصبر"], prefixes=f"{HNDLR}"))
+
 @authorized_users_only
 async def pause(client, m: Message):
     await m.delete()
@@ -394,7 +395,7 @@ async def pause(client, m: Message):
             await m.reply(f"**هناك خطأ ** \n`{e}`")
     else:
         await m.reply("** ❌ لايوجد اغنيه مشتغله !**") 
-@Client.on_message(filters.command(["ايقاف_الاستئناف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["كمل"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
